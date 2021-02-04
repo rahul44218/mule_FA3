@@ -10,5 +10,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="fa3Flow" doc:id="653d6443-45c6-4710-9ffa-ec7e270db66e" >
 		<http:listener doc:name="Listener" doc:id="72135db5-41ec-455e-9ead-1272245a6960" config-ref="HTTP_Listener_config" path="/employees"/>
 		<set-payload value="First FA3 Project after first commit" doc:name="Set Payload" doc:id="c6bc20cb-0b40-4748-aac8-3ad2c5c46c1d" />
+		<logger level="INFO" doc:name="Logger" doc:id="9badfbeb-548d-4a7d-962a-e2120ced5713" message="#[payload]"/>
 	</flow>
 </mule>
