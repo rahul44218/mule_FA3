@@ -22,6 +22,39 @@
 
 	<build>
 		<plugins>
+		    <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.6</version>
+                <extensions>true</extensions>
+                <configuration>
+                	<cloudHubDeployment>
+                		<uri>https://anypont.mulesoft.com</uri>
+                		<username>rahul44219</username>
+                		<password>Rahulritzltm1@</password>
+                		<environment>Sandbox</environment>
+                		<muleVersion>4.3.0</muleVersion>
+                		<workers>1</workers>
+                		<workerType>Micro</workerType>
+                		<applicationName>mulebuild</applicationName>
+                		<objectStoreV2>true</objectStoreV2>
+	
+                	</cloudHubDeployment>
+                    <serverId>nexus</serverId>
+                    <nexusUrl>http://localhost:9081/nexus/</nexusUrl>
+                    <skipStaging>true</skipStaging>
+                </configuration>
+                <executions>
+                       <execution>
+                         <id>default-deploy</id>
+                         <phase>deploy</phase>
+                         <goals>
+                           <goal>deploy</goal>
+                         </goals>
+                       </execution>
+                </executions>   
+            </plugin>
+            
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -37,6 +70,13 @@
 			</plugin>
 		</plugins>
 	</build>
+	<distributionManagement>
+        <snapshotRepository>
+            <id>fa3repo</id>
+            <name>fa3repo</name>
+            <url>http://localhost:8091/repository/fa3repo/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 	<dependencies>
         <dependency>
