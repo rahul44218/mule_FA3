@@ -41,7 +41,7 @@
 	
                 	</cloudHubDeployment>
                     <serverId>nexus</serverId>
-                    <nexusUrl>http://localhost:9081/nexus/</nexusUrl>
+                    <nexusUrl>http://localhost:8091/nexus/</nexusUrl>
                     <skipStaging>true</skipStaging>
                 </configuration>
                 <executions>
