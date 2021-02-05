@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="fa3-test-suite.xml" />
+	<munit:test name="fa3-test-suite-fa3FlowTest" doc:id="acecbe6b-22bf-43cb-afb3-b8acf3d39827" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to fa3Flow" doc:id="392c54e7-36e9-4148-a2c0-a9838cfe227b" name="fa3Flow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-equals doc:name="Assert equals" doc:id="a1058580-3068-4897-9d25-425719f2998f" actual="#[payload]" expected='#["hello"]' message="payload not match"/>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="fa3-test-suite-fa3FlowTest1" doc:id="7d000d83-39ab-44dc-a80b-40c1ab7c4896" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to fa3Flow" doc:id="0a208e2a-bf99-4a44-9793-107ef62e762a" name="fa3Flow"/>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-that doc:name="Assert that" doc:id="f2f23267-15db-4368-aa73-634938ffcbf5" is="#[MunitTools::notNullValue()]" message="payload cannot be null" expression="#[payload]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
