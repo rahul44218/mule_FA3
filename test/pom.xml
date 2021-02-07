@@ -21,6 +21,27 @@
 	<build>
 		<plugins>
 			<plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.6</version>
+                <extensions>true</extensions>
+                <configuration>
+                	
+                    <serverId>nexus</serverId>
+                    <nexusUrl>http://localhost:8091/nexus/</nexusUrl>
+                    <skipStaging>true</skipStaging>
+                </configuration>
+                <executions>
+                       <execution>
+                         <id>default-deploy</id>
+                         <phase>deploy</phase>
+                         <goals>
+                           <goal>deploy</goal>
+                         </goals>
+                       </execution>
+                </executions>   
+            </plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>3.0.0</version>
@@ -47,6 +68,14 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<distributionManagement>
+        <snapshotRepository>
+            <id>Fa3Repo</id>
+            <name>Fa3Repo</name>
+            <url>http://localhost:8091/repository/Fa3Repo/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 	<dependencies>
         <dependency>
