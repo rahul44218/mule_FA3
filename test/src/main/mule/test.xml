@@ -4,11 +4,11 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
-	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="69b44849-7e7a-492f-bae1-3a99c00bca58" >
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="67aaf122-c754-4b8e-b4dc-96eb267f61be" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
-	<flow name="fa3Flow" doc:id="653d6443-45c6-4710-9ffa-ec7e270db66e" >
-		<http:listener doc:name="Listener" doc:id="72135db5-41ec-455e-9ead-1272245a6960" config-ref="HTTP_Listener_config" path="/employees"/>
-		<set-payload value="hello" doc:name="Set Payload" doc:id="c6bc20cb-0b40-4748-aac8-3ad2c5c46c1d" />
+	<flow name="testFlow" doc:id="1bf55fe0-c440-4935-bca3-27c9dfab31b7" >
+		<http:listener doc:name="Listener" doc:id="8396069b-5138-44da-8241-19dabb0a5dbe" config-ref="HTTP_Listener_config" path="/test"/>
+		<set-payload value="hello" doc:name="Set Payload" doc:id="4aa1f930-8581-4952-ae28-ce481e5874de" />
 	</flow>
 </mule>
